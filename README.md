@@ -4,7 +4,7 @@ This repository contains dataset and STATA programs written for its production.
 
 ## Authors and contact
 The authors of the programs are Hubert Drążkowski and Sebastian Zalas. 
-In case of question and comments, please send them an e-mail.
+In case of question and comments, please send an e-mail to s.zalas@grape.org.pl.
 
 ## Dataset description
 *to do*
