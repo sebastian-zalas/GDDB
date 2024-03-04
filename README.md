@@ -6,8 +6,31 @@ This repository contains dataset and STATA programs written for its production.
 The authors of the programs are Hubert Drążkowski and Sebastian Zalas. 
 In case of question and comments, please send an e-mail to s.zalas@grape.org.pl.
 
+
 ## Dataset description
-*to do*
+The GBDD includes two files: a sectoral file and country file. 
+
+# The sectoral file includes indicators for `country', `year' and 2-digit NACE code (`nace2'). In each of those cells, we report the following variables:
+- share of women in senior management `female_share_senmen' computed as an average share share of women holding senior management (executive) positions across firms; this is an unweighted share from all firms
+
+- share of women in supervisory boards `female_share_supboard', computed analogously for positions in supervisory (non-executive) boards 
+
+- share of women in all boards combined `female_share_boards' computed analogously; note that individuals in ambiguous positions are included as well
+
+- share of women in senior management `female_share_ind_senmen' computed as a share of women holding senior management (executive) positions over the total number of individuals with such positions; this is a weighted share
+
+- share of women in supervisory boards `female_share_ind_supboard', computed analogously for positions in supervisory (non-executive) boards 
+
+- share of women in all boards combined `female_share_ind_boards' computed analogously; note that individuals in ambiguous positions are included as well
+
+- share of firms without women in management (executive) positions `zero_share_senmen'
+
+- share of firms without women in supervisory (non-executive) positions `zero_share_supboard' 
+
+- share of firms without women in any board `zero_share_boards'
+
+# Analogously, in the country file we include indicators for `country', and `year'. The data is reported as an aggregate across all types of firms (variables with suffix `_all') and separately for stock-listed firms (`_stl') and private (not listed) ones (`_prv').
+
 
 ## Codes description
 Processing data about managers was the main axis our of work, but we also organized other areas of the Orbis database. Thus first, we describe codes written for processing managers data. Then we introduce other programs. We worked on STATA 17.
@@ -29,10 +52,13 @@ These codes constitute a complete sequence; output from predecessor is an input 
 
 - `_managers_7_firm_level.do` - this code collapse person level data from previous step to firm level.
 
-- `_gender_board_diversity_dataset` - this code produces **Gender Board Diversity Dataset**, which is uploaded in this repository
+- `_gender_board_diversity_dataset` - this code produces **Gender Board Diversity Dataset** at country-industry-year level.
+
+- `_gender_board_diversity_dataset_country_stock` - this code produces **Gender Board Diversity Dataset** by country-year level, for stocklisted and private firms
 
 ### Additional routines
 - `_nace.do` - prepares a NACE rev. 2 industry code for firms. Due to the fact that NACE classification changed over time, we adjust all codes with NACE rev. 2 classification.
+
 - `_nace_crosswalk_nace1_to_nace11.do` and `_nace_crosswalk_nace1_to_nace11.do` contain crosswalks between NACE rev. 1, NACE rev. 1.1 and NACE rev. 2
 
 - `_listed.do` - this code gathers the information from all waves wheterf firm was listed on stock exchange and in which years
